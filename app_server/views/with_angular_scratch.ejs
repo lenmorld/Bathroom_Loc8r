@@ -33,11 +33,46 @@
 	  	</div>
 
 	  	<!-- BLOCK CONTENT -->
-<!-- 	  	<div class="container">
-		    <h1><%= title %></h1>
+	  	<div class="container">
+	  		<div id="banner" class="page-header">
+	  			<div class="row">
+	  				<div class="col-lg-6">
+	  					<h1>Loc8r</h1>
+	  					<small>&nbsp;Find places to ship wifi near you!</small>
+	  				</div>
+	  			</div>
+	  		</div>
+	  		<div class="row">
+	  			<div class="col-xs-12 col-sm-8">
+	  				<!-- <p>List area.</p> -->
+	  				<div class="row list-group">
+	  					<!-- NG REPEAT here -->
+	  					<div class="col-xs-12 list-group-item" ng-repeat="location in locations">
+	  						<h4>
+	  							<a href="{{/location}}">{{location.name}}</a>
+	  							<small> &nbsp;
+	  								{{location.rating}}
+	  							</small>
+	  							<span class="badge pull-right badge-default">
+	  								{{location.distance}}
+	  							</span>
+	  						</h4>
+	  						<p class="address">{{location.address}}</p>
+	  						<p>
+	  							<span class="label label-warning" ng-repeat="facility in facilities">{{facility}}</span>
+	  							&nbsp;
+	  						</p>
+	  					</div>
+	  				</div>
+	  			</div>
+	  			<div class="col-xs-12 col-sm-4">
+	  				<p class="lead">Loc8r helps you find places to work when out and about.</p>
+	  			</div>			
+	  		</div>
+<!-- 		    <h1><%= title %></h1>
 		    <p>Welcome to <%= title %></p>
-		    <h3>Lenny Style..... yeahhhh</h3>
-	  	</div> -->
+		    <h3>Lenny Style..... yeahhhh</h3> -->
+	  	</div>
 
 	  	<!-- FOOTER -->
 	  	<footer>

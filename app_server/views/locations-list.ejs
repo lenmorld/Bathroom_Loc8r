@@ -37,8 +37,9 @@
 	  		<div id="banner" class="page-header">
 	  			<div class="row">
 	  				<div class="col-lg-6">
-	  					<h1>Loc8r</h1>
-	  					<small>&nbsp;Find places to use wifi near you!</small>
+	  					<!-- <h1>Loc8r</h1> -->
+	  					<h1><%= pageHeader.title %></h1>		<!-- EJS rendering sample instead of JADE-->
+	  					<small>&nbsp;<%= pageHeader.strapline%></small>
 	  				</div>
 	  			</div>
 	  		</div>
@@ -47,7 +48,50 @@
 	  				<!-- <p>List area.</p> -->
 	  				<div class="row list-group">
 	  					<!-- NG REPEAT here -->
-	  					<div class="col-xs-12 list-group-item" ng-repeat="location in locations">
+	  					<!-- for now, we use EJS looping through JS objects provided by the controller -->
+	  					<% for (var i=0; i < locations.length; i++) { %>
+
+	  					<div class="col-xs-12 list-group-item" >
+	  						<h4>
+	  							<a href="/location"><%= locations[i].name %></a>
+	  							<small> &nbsp;
+	  								<% for (var r=1; r <= locations[i].rating; r++) { %>
+	  									<span class="glyphicon glyphicon-star"></span>
+	  								<% } %>
+
+	  								<% for (var r=1; r <= ( 5 - locations[i].rating); r++) { %>
+	  									<span class="glyphicon glyphicon-star-empty"></span>
+	  								<% } %>	
+
+<!-- 	  								<span class="glyphicon glyphicon-star"></span>
+	  								<span class="glyphicon glyphicon-star"></span>
+	  								<span class="glyphicon glyphicon-star"></span>
+	  								<span class="glyphicon glyphicon-star-empty"></span>
+	  								<span class="glyphicon glyphicon-star-empty"></span> -->
+	  							</small>
+	  							<span class="badge pull-right badge-default">
+	  								<%= locations[i].distance %>
+	  							</span>
+	  						</h4>
+	  						<p class="address"><%= locations[i].address %></p>
+	  						<p>
+	  							<% for (var j=0; j < locations[i].facilities.length; j++) { %>
+	  							<span class="label label-warning">
+	  								<%= locations[i].facilities[j] %>
+	  							</span>
+	  							&nbsp;
+	  							<% } %>
+<!-- 	  							<span class="label label-warning" ng-repeat="facility in facilities">Food</span>
+	  							&nbsp;
+	  							<span class="label label-warning" ng-repeat="facility in facilities">Premium wifi</span>
+	  							&nbsp; -->
+	  						</p>
+	  					</div>
+
+
+	  					<% } %>
+
+<!-- 	  					<div class="col-xs-12 list-group-item" >
 	  						<h4>
 	  							<a href="/location">Starcups</a>
 	  							<small> &nbsp;
@@ -72,7 +116,7 @@
 	  						</p>
 	  					</div>
 
-	  					<div class="col-xs-12 list-group-item" ng-repeat="location in locations">
+	  					<div class="col-xs-12 list-group-item" >
 	  						<h4>
 	  							<a href="/location">Starcups</a>
 	  							<small> &nbsp;
@@ -95,32 +139,7 @@
 	  							<span class="label label-warning" ng-repeat="facility in facilities">Premium wifi</span>
 	  							&nbsp;
 	  						</p>
-	  					</div>
-
-	  					<div class="col-xs-12 list-group-item" ng-repeat="location in locations">
-	  						<h4>
-	  							<a href="/location">Starcups</a>
-	  							<small> &nbsp;
-	  								<span class="glyphicon glyphicon-star"></span>
-	  								<span class="glyphicon glyphicon-star"></span>
-	  								<span class="glyphicon glyphicon-star"></span>
-	  								<span class="glyphicon glyphicon-star-empty"></span>
-	  								<span class="glyphicon glyphicon-star-empty"></span>
-	  							</small>
-	  							<span class="badge pull-right badge-default">
-	  								100m
-	  							</span>
-	  						</h4>
-	  						<p class="address">125 High Street, Reading, H2L 3W2</p>
-	  						<p>
-	  							<span class="label label-warning" ng-repeat="facility in facilities">Hot drinks</span>
-	  							&nbsp;
-	  							<span class="label label-warning" ng-repeat="facility in facilities">Food</span>
-	  							&nbsp;
-	  							<span class="label label-warning" ng-repeat="facility in facilities">Premium wifi</span>
-	  							&nbsp;
-	  						</p>
-	  					</div>
+	  					</div> -->
 	  				</div>
 	  			</div>
 	  			<div class="col-xs-12 col-sm-4">
